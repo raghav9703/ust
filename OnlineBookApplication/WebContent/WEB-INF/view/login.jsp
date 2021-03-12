@@ -6,6 +6,22 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
+<script type="text/javascript">
+function validation()
+{
+	if(document.contact_form.mobileNumber.value=="")
+		{
+			alert("Please enter your Mobile Number");
+			return false;
+		}
+	if(document.contact_form.password.value=="")
+	{
+		alert("Please enter your password");
+		return false;
+	}	
+}
+</script>
+
 </head>
 <body>
 	<h1 align="center">Welcome to Login Page</h1>
@@ -17,7 +33,7 @@
 			onclick="window.location.href='addUser';  return false;" />
 	</h3>
 
-	<form:form action="loginUser" method="POST" modelAttribute="user">
+	<form:form action="loginUser" method="POST" modelAttribute="user" onsubmit="return validation()" name="contact_form">
 		<table align="center" border="2">
 			<tbody>
 

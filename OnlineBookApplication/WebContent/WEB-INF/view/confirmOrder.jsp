@@ -10,17 +10,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-	welcome
-	<%-- 
-<form:form action="confirmed" method="POST" modelAttribute="order"  > 
-<form:hidden path="orderId"/>
-<form:hidden path="bookId" value="${book.bookId}" />
 
-		Customer Name <form:input path="customerName" /><br>
-		Address<form:input path="address" /><br>
-		Phone Number<form:input path="phoneNumber" /><br>
+	
+<form:form action="confirmed" method="POST"   > 
+
 
 	<table border="1" width="80%" align="center">
+	
+		<section>
+ Customer Name : <input type ="text" name= "customername" ><br><br>
+Address : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;<input type="text"  name= "address" > <br><br>
+Phone Number : &nbsp;&nbsp;<input type="tel"  name= "phonenumber" pattern="^\d{10}$" required > 
+</section>
 	
 		<tr>
 			<th>Book Name</th>
@@ -38,6 +39,6 @@
 	<input type="button" Value="Confirm"/>
 	</form:form>
 	<input type="button" value="Cancel" onclick="window.location.href='list';  return false;" />
- --%>
+
 </body>
 </html>

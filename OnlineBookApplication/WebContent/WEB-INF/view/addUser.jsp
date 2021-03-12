@@ -9,29 +9,58 @@
 
 
 <script type="text/javascript">
-function validation(docName)
+function validation()
 {
-	var password = docName.registerationForm.password.value;
-	if(password=="")
+	if(document.contact_form.mobileNumber.value=="")
+		{
+			alert("Please enter your Mobile Number");
+			return false;
+		}
+	if(document.contact_form.password.value=="")
 	{
-		alert("Enter a password");
+		alert("Please enter your password");
 		return false;
 	}
-	if(password.length<4 || password.match(/[a-z]/g) == null ||password.match(/[A-Z]/g) ==null||password.match(/[0-9]/g) == null ){
-		alert("Enter a Password .must contain At least ONE uppercase & lowercase character & ONE Digit & Length greater-than 5.");
-		return false;
-	}
-	if(docName.registerationForm.mobileNumber.value.length != 10)
+	if(document.contact_form.emailAddress.value=="")
 	{
-		alert("Enter a valid mobile number");
+		alert("Please enter your emailAddress");
 		return false;
 	}
-	if(docName.registerationForm.address.value.length <= 3)
+	if(document.contact_form.addressLine1.value=="")
 	{
-		alert("Enter address. Length must be greater-than 3 ");
+		alert("Please enter your addressLine1");
 		return false;
 	}
+	if(document.contact_form.addressLine2.value=="")
+	{
+		alert("Please enter your addressLine2");
+		return false;
+	}
+if(document.contact_form.pincode.value=="")
+{
+	alert("Please enter your pincode");
+	return false;
 }
+	
+}
+
+
+function Password()
+{
+   
+if ( /^[A-Za-z0-9]{5,9}/.test(document.getElementById("password").value))
+   {
+           document.getElementById("msg5").innerHTML=' ';
+document.getElementById("msg1").style.backgroundColor='#e3e3e3';
+
+}
+else
+{
+alert("Invalid password!--should contain characters of length 5-9");
+
+}}
+
+
 </script>
 
 
@@ -46,8 +75,7 @@ function validation(docName)
 	<br>
 
 
-	<form:form action="saveUser" method="POST" modelAttribute="user"
-		onsubmit="return validation()" name="registerationForm">
+	<form:form action="saveUser" method="POST" modelAttribute="user" onsubmit="return validation()" name="contact_form">
 		<table align="center" border="2">
 			<tbody>
 				<tr>
@@ -58,7 +86,8 @@ function validation(docName)
 				<tr>
 					<td><label>Password</label></td>
 					<td><form:input path="password" type="password"
-							name="password" /></td>
+							name="password" onchange="Password()" /></td>
+							<span id="msg1"></span>
 				</tr>
 
 				<tr>
